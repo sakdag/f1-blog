@@ -133,3 +133,4 @@ dmypy.json
 
 # IDE related
 .idea/
+/apps/accounts/migrations/

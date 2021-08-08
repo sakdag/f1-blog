@@ -1,0 +1,11 @@
+{% extends 'f1_blog/base.html' %}
+
+{% block title_block %}
+  <title>Home</title>
+{% endblock %}
+
+{% block body_block %}
+  {% if user.is_authenticated %}
+    <h1>Welcome to Formula 1 Blog {{ user }}!</h1>
+  {% endif %}
+{% endblock %}
