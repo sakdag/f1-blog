@@ -6,6 +6,6 @@
 
 {% block body_block %}
   {% if user.is_authenticated %}
-    <h1>Welcome to Formula 1 Blog {{ user }}!</h1>
+    <h1>Welcome to Formula 1 Blog @{{ user.username }}!</h1>
   {% endif %}
 {% endblock %}

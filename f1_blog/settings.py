@@ -15,7 +15,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, os.path.join(BASE_DIR, '../apps'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.accounts',
+    'apps.communities',
+    'apps.posts',
     'bootstrap5',
 ]
 
@@ -61,6 +63,8 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'apps/accounts/templates'),
+            os.path.join(BASE_DIR, 'apps/communities/templates'),
+            os.path.join(BASE_DIR, 'apps/posts/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
