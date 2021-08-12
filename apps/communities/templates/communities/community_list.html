@@ -16,12 +16,12 @@
         </h2>
       {% endif %}
 
-      <h2>Groups</h2>
+      <h2>Communities</h2>
       <p>Welcome to communities page!</p>
     </div>
 
     {% if user.is_authenticated %}
-      <a href="{% url 'communities:create' %}" class="btn btn-md btn-fill btn-warning">
+      <a href="{% url 'communities:create_community' %}" class="btn btn-md btn-fill btn-warning">
         <span class="glyphicon glyphicon-plus-sign">Create New Community!</span>
       </a>
     {% endif %}
@@ -35,7 +35,7 @@
   <div class="col-md-8">
     <div class="list-communities">
       {% for community in object_list %}
-        <a href="{% url 'communities:single' slug=community.slug %}">
+        <a href="{% url 'communities:single_community' slug=community.slug %}">
           <h3 class="title list-community-item-heading">{{ community.name }}</h3>
           <div class="list-community-item-text container-fluid">
             {{ community.description_html | safe }}

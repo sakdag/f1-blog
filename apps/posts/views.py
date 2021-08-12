@@ -44,14 +44,14 @@ class PostDetail(SelectRelatedMixin, DetailView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.filter(user_username__iexact=self.kwargs.get('username'))
+        return queryset.filter(user__username__iexact=self.kwargs.get('username'))
 
 
 class CreatePost(LoginRequiredMixin, SelectRelatedMixin, CreateView):
     fields = ('message', 'community')
     model = models.Post
 
-    def is_valid(self, form):
+    def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.user = self.request.user
         self.object.save()
@@ -60,7 +60,7 @@ class CreatePost(LoginRequiredMixin, SelectRelatedMixin, CreateView):
 
 class DeletePost(LoginRequiredMixin, SelectRelatedMixin, DeleteView):
     model = models.Post
-    select_related = ('user', 'post')
+    select_related = ('user', 'community')
     success_url = reverse_lazy('posts:all')
 
     def get_queryset(self):
@@ -69,4 +69,4 @@ class DeletePost(LoginRequiredMixin, SelectRelatedMixin, DeleteView):
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Post Deleted!')
-        return super().delete(*args, **kwargs)
+        return super().delete(request, *args, **kwargs)

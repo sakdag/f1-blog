@@ -5,11 +5,11 @@
     {% if user.is_authenticated %}
       <div class="card card-with-shadow">
         <div class="content">
-          <h5 class="title">Your Groups</h5>
+          <h5 class="title">Your Communities</h5>
           <ul class="list-unstyled">
             {% for member_community in get_user_communities %}
               <li class="community li-with-bullet">
-                <a href="{% url 'communities:single' slug=member_community.community.slug %}"></a>
+                <a href="{% url 'communities:single_community' slug=member_community.community.slug %}"></a>
               </li>
             {% endfor %}
           </ul>
@@ -22,7 +22,7 @@
         <ul class="list-unstyled">
           {% for other_community in get_other_communities %}
             <li class="community li-with-bullet">
-              <a href="{% url 'communities:single' slug=other_community.slug %}"></a>
+              <a href="{% url 'communities:single_community' slug=other_community.slug %}"></a>
             </li>
           {% endfor %}
         </ul>

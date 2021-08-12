@@ -22,4 +22,6 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='f1_blog/index.html'), name='home'),
     path('acounts/', include('apps.accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('communities/', include('apps.communities.urls')),
+    path('posts/', include('apps.posts.urls')),
 ]

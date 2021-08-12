@@ -42,14 +42,14 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Groups</a>
+            <a class="nav-link" href="{% url 'communities:list_communities' %}">Communities</a>
           </li>
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Post</a>
+              <a class="nav-link" href="{% url 'posts:create' %}">Create Post</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Create Group</a>
+              <a class="nav-link" href="{% url 'communities:create_community' %}">Create Community</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'accounts:logout' %}">Log Out</a>

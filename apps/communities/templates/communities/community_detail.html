@@ -27,7 +27,7 @@
     {% if community.posts.count == 0 %}
       <h2>No posts in this community yet!</h2>
     {% else %}
-      {% for post in community.posts %}
+      {% for post in community.posts.all %}
         {% include 'posts/_post.html' %}
       {% endfor %}
     {% endif %}

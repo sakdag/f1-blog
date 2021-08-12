@@ -9,7 +9,7 @@
 
   <h1>Create a new community!</h1>
 
-  <form method="POST" action="{% url 'communities/create' %}" id="community_form">
+  <form method="POST" action="{% url 'communities:create_community' %}" id="community_form">
     {% csrf_token %}
     {% bootstrap_form form %}
     <input type="submit" value="Create" class="btn btn-lg btn-primary">
