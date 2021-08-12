@@ -10,7 +10,7 @@ User = get_user_model()
 
 
 class Post(models.Model):
-    user = models.ForeignKey(User, related_name='post', on_delete=models.RESTRICT)
+    user = models.ForeignKey(User, related_name='posts', on_delete=models.RESTRICT)
     created_at = models.DateTimeField(auto_now=True)
     message = models.TextField()
     message_html = models.TextField(editable=False)

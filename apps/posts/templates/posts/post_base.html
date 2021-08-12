@@ -1,1 +1,13 @@
 {% extends 'f1_blog/base.html' %}
+
+{% block body_block %}
+
+  <div class="container posts_page">
+    <div class="row">
+      {% block prepost %} {% endblock %}
+      {% block post_content %} {% endblock %}
+      {% block postpost %} {% endblock %}
+    </div>
+  </div>
+
+{% endblock %}
