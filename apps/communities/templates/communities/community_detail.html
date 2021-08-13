@@ -4,33 +4,45 @@
   <title>{{ community.name }}</title>
 {% endblock %}
 
+<div class="justify-content-md-center">
+
 {% block precomunity %}
 
-  <h1>{{ community.name }}</h1>
-  <h2>Member count: {{ community.members.count }}</h2>
+  <div class="col-12 col-md-4">
+    <h1>{{ community.name }}</h1>
+    <h2>Member count: {{ community.members.count }}</h2>
 
-  <div class="content">
-    {% if user in community.members.all %}
-      <a href="{% url 'communities:leave' slug=community.slug %}" class="btn btn-lg btn-warning btn-fill">
-        <span class="glyphicon glyphicon-remove-circle"></span>Leave</a>
-    {% else %}
-      <a href="{% url 'communities:join' slug=community.slug %}" class="btn btn-lg btn-primary btn-fill">
-        <span class="glyphicon glyphicon-ok-circle"></span>Join</a>
-    {% endif %}
+    <div class="content">
+      {% if user in community.members.all %}
+        <a href="{% url 'communities:leave' slug=community.slug %}" class="btn btn-lg btn-primary btn-fill">Leave</a>
+      {% else %}
+        <a href="{% url 'communities:join' slug=community.slug %}" class="btn btn-lg btn-primary btn-fill">Join</a>
+      {% endif %}
+    </div>
   </div>
 
 {% endblock %}
 
 {% block community_content %}
 
-  <div class="col-md-8">
-    {% if community.posts.count == 0 %}
-      <h2>No posts in this community yet!</h2>
-    {% else %}
-      {% for post in community.posts.all %}
-        {% include 'posts/_post.html' %}
-      {% endfor %}
-    {% endif %}
+  <div class="col-12 col-md-8">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        {% if community.posts.count == 0 %}
+          <h2>No posts in this community yet!</h2>
+        {% else %}
+          {% for post in community.posts.all %}
+            <div class="card">
+              <div class="card-body">
+                {% include 'posts/_post.html' %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
   </div>
 
 {% endblock %}
+
+</div>
