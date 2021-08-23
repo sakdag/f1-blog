@@ -1,0 +1,43 @@
+body {
+  margin: 0 !important;
+  overflow: hidden !important;
+  background-color: #bee9e8 !important;
+  color: #1b4965 !important;
+}
+
+.title {
+  text-align: center;
+}
+
+.link-card {
+  text-decoration: none;
+}
+
+.card {
+  background-color: #62b6cb !important;
+  margin-bottom: 10px;
+  transition: box-shadow .3s;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px #1b4965;
+}
+
+.text-inside-card {
+  color: #1b4965;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #1b4965 !important;
+    border-color: #1b4965 !important;
+    transition: box-shadow .3s;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 11px #1b4965;
+}
+
+.navbar-custom {
+    background-color: #1b4965 !important;
+}

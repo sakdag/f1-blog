@@ -1,0 +1,40 @@
+{% extends 'posts/post_base.html' %}
+
+{% block prepost %}
+  <div class="col-md-4">
+    {% if user.is_authenticated %}
+      <div class="card card-with-shadow">
+        <div class="content">
+          <h5 class="title">Your Communities</h5>
+          <ul class="list-unstyled">
+            {% for member_community in get_user_communities %}
+              <li class="community li-with-bullet">
+                <a href="{% url 'communities:single_community' slug=member_community.community.slug %}"></a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+    <div class="card card-with-shadow">
+      <div class="content">
+        <h5 class="title">All Communities</h5>
+        <ul class="list-unstyled">
+          {% for other_community in get_other_communities %}
+            <li class="community li-with-bullet">
+              <a href="{% url 'communities:single_community' slug=other_community.slug %}"></a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block post_content %}
+  <div class="col-md-8">
+    {% for post in post_list %}
+      {% include 'posts/_post.html' %}
+    {% endfor%}
+  </div>
+{% endblock %}

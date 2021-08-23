@@ -1,0 +1,62 @@
+{% extends 'communities/community_base.html' %}
+
+{% block title_block %}
+  <title>Communities</title>
+{% endblock %}
+
+<div class="justify-content-md-center">
+
+{% block precomunity %}
+
+  <div class="col-12 col-md-4">
+    <div class="content">
+      <h2>Communities</h2>
+      <p>Welcome to communities page!</p>
+    </div>
+
+    {% if user.is_authenticated %}
+      <a href="{% url 'communities:create_community' %}" class="btn btn-md btn-fill btn-primary">
+        Create New Community!
+      </a>
+    {% endif %}
+
+  </div>
+
+{% endblock %}
+
+{% block community_content %}
+
+  <div class="col-12 col-md-8">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        {% for community in object_list %}
+          <div class="card">
+            <div class="card-body">
+              <a class="link-card" href="{% url 'communities:single_community' slug=community.slug %}">
+                <h3 class="title text-inside-card">{{ community.name }}</h3>
+                <div class="container-fluid">
+                  <p class="text-inside-card">{{ community.description }}</p>
+                  <div class="row">
+                    <div class="col">
+                      <span class="text-inside-card">
+                        {{ community.members.count }} member{{ community.members.count | pluralize }}
+                      </span>
+                    </div>
+                    <div class="col">
+                      <span class="text-inside-card">
+                        {{ community.posts.count }} post{{ community.posts.count | pluralize }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+</div>
