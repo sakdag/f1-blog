@@ -134,3 +134,6 @@ dmypy.json
 # IDE related
 .idea/
 /apps/accounts/migrations/
+
+# For secret key
+.env

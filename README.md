@@ -18,6 +18,12 @@ source activate f1-blog-env
 pip install -r requirements.txt
 ```
 
+Create necessary variables for settings by creating `.env` file in project root where manage.py lives in. 
+Create 2 variables: 
+
+* SECRET_KEY: for more information [use this link](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key)
+* DEBUG: Boolean variable
+
 Migrate for database setup:
 ```
 python3 manage.py migrate
